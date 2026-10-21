@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../model/estado_model.dart';
 import '../service/ibge_service.dart';
+import 'municipio_view.dart';
 
 class EstadoView extends StatefulWidget {
   const EstadoView({super.key});
@@ -30,6 +31,14 @@ class _EstadoViewState extends State<EstadoView> {
                 itemBuilder: (context, index) {
                   return Card(
                     child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MunicipiosView(lista[index]),
+                          ),
+                        );
+                      },
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
